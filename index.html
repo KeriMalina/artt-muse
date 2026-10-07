@@ -543,20 +543,17 @@
     layoutGallery();
   }));
 
-  // Раскладка по рядам: каждое следующее фото — в самую короткую колонку (при равенстве — в левую),
-  // поэтому порядок в разметке читается слева направо, сверху вниз
+  // Раскладка по рядам: 1-е фото в левую колонку, 2-е в среднюю, 3-е в правую, 4-е снова в левую (под 1-м) и т. д.
+  // Порядок в разметке = порядок, который задала Таня
   const gallery = document.getElementById("gallery");
   const narrow = matchMedia("(max-width: 960px)");
   function layoutGallery() {
     const n = narrow.matches ? 2 : 3;
     const cols = Array.from({ length: n }, () => { const c = document.createElement("div"); c.className = "gallery-col"; return c; });
-    const heights = new Array(n).fill(0);
+    let k = 0;
     shots.forEach((s) => {
-      const img = s.querySelector("img");
-      let i = 0;
-      for (let k = 1; k < n; k++) if (heights[k] < heights[i] - 0.05) i = k;
-      cols[i].appendChild(s);
-      if (!s.classList.contains("hidden")) heights[i] += img.getAttribute("height") / img.getAttribute("width") + 0.04;
+      if (s.classList.contains("hidden")) { cols[0].appendChild(s); return; }
+      cols[k % n].appendChild(s); k++;
     });
     gallery.replaceChildren(...cols);
     gallery.classList.add("rows");
