@@ -81,6 +81,11 @@
      Девушка на фото стоит у левого края кадра, поэтому фото уже и переход короткий */
   @media (min-width: 961px) {
     .hero-bg img { position: absolute; inset: 0 0 0 auto; width: 50%; object-position: 50% 25%; }
+    /* Текст занимает только левую половину: начинается там же, где остальной сайт, и заканчивается до фото */
+    .hero .container { width: 50%; max-width: none; margin: 0; padding: 0 40px 0 max(24px, calc(50% - 620px + 24px)); }
+    .hero .container h1 { font-size: min(4.4vw, 4.2rem); }
+    .hero .container > * { max-width: 100%; }
+    [dir="rtl"] .hero .container { margin: 0 0 0 auto; padding: 0 max(24px, calc(50% - 620px + 24px)) 0 40px; }
     .hero-bg::after { background: linear-gradient(90deg, var(--bg) 0%, var(--bg) 50%, rgba(17,17,16,.3) 56%, rgba(17,17,16,0) 62%),
                                   linear-gradient(180deg, rgba(17,17,16,.7) 0%, rgba(17,17,16,0) 40%, rgba(17,17,16,0) 60%, rgba(17,17,16,.9) 100%); }
     /* Арабский читается справа налево: текст справа, значит фото слева */
