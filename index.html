@@ -97,6 +97,7 @@
   .hero h1 { font-size: clamp(3rem, 8vw, 6.4rem); max-width: 900px; letter-spacing: -.015em; }
   [lang="ar"] .hero h1 { letter-spacing: 0; }
   .hero h1 em { color: var(--accent); }
+  .hero h1 .nowrap { white-space: nowrap; } /* «По-настоящему» не рвём на дефисе */
   .hero-lead { font-size: 1.15rem; color: var(--text-2); max-width: 540px; margin: 22px 0 34px; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
   .hero-meta { position: absolute; inset-inline-end: 24px; bottom: 6px; color: var(--text-2); font-size: .85rem; text-align: end; }
@@ -190,6 +191,7 @@
     .container { padding: 0 16px; }
     section { padding: 72px 0; }
     .hero { padding-bottom: 48px; }
+    .hero h1 { font-size: min(3rem, 11.5vw); } /* «По-настоящему.» помещается в строку даже на 320 px */
     .header .btn { display: none; }
     .gallery { column-gap: 8px; }
     .gallery.rows, .gallery-col { gap: 8px; }
@@ -231,7 +233,7 @@
     <div class="hero-bg"><img src="images/portrait-08.jpg" alt="" width="1200" height="1600"></div>
     <div class="container">
       <p class="eyebrow" data-i18n="hero.eyebrow">Фотограф в Аммане · personal · love story · pregnancy</p>
-      <h1 data-i18n="hero.title">Видеть. Чувствовать. <em>Замечать.</em></h1>
+      <h1 data-i18n="hero.title">Легко. Свободно. <em class="nowrap">По-настоящему.</em></h1>
       <p class="hero-lead" data-i18n="hero.lead">Портретные, love story и pregnancy съёмки в Аммане. Спокойно и без зажатых поз — с вниманием к свету, эмоциям и деталям.</p>
       <div class="hero-actions">
         <a href="#portfolio" class="btn btn-primary" data-i18n="hero.btn1">Смотреть работы</a>
@@ -434,7 +436,7 @@
       "nav.portfolio": "Portfolio", "nav.shoots": "Sessions", "nav.process": "How it works", "nav.about": "About me", "nav.faq": "FAQ", "nav.booking": "Booking",
       "cta.book": "Book a session",
       "hero.eyebrow": "Photographer in Amman · personal · love story · pregnancy",
-      "hero.title": "See. Feel. <em>Notice.</em>",
+      "hero.title": "Easy. Free. <em>For real.</em>",
       "hero.lead": "Portrait, love story and maternity sessions in Amman. Relaxed, with no stiff poses — and with attention to light, emotion and detail.",
       "hero.btn1": "View portfolio", "hero.btn2": "Discuss a session",
       "hero.meta": "Amman, Jordan<br>Also shooting while travelling",
@@ -474,7 +476,7 @@
       "nav.portfolio": "الأعمال", "nav.shoots": "الجلسات", "nav.process": "كيف تتم الجلسة", "nav.about": "عنّي", "nav.faq": "الأسئلة", "nav.booking": "الحجز",
       "cta.book": "احجز جلسة",
       "hero.eyebrow": "مصوّرة في عمّان · بورتريه · قصة حب · الحمل",
-      "hero.title": "أن أرى. أن أشعر. <em>أن ألاحظ.</em>",
+      "hero.title": "بسهولة. بحرية. <em>بصدق.</em>",
       "hero.lead": "جلسات تصوير شخصية وقصص حب وتصوير الحمل في عمّان. بهدوء ودون وضعيات متكلّفة — مع اهتمام بالضوء والمشاعر والتفاصيل.",
       "hero.btn1": "شاهد الأعمال", "hero.btn2": "ناقش جلستك",
       "hero.meta": "عمّان، الأردن<br>أصوّر أيضاً أثناء السفر",
