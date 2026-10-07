@@ -77,15 +77,22 @@
   .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 8%; }
   .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,16,.1) 0%, rgba(17,17,16,.3) 40%, rgba(17,17,16,.95) 100%); }
   .hero .container { position: relative; }
-  /* На широком экране вертикальное фото справа, текст на тёмном фоне слева — иначе надписи ложатся на лицо */
+  /* На широком экране вертикальное фото справа, текст на тёмном фоне слева — иначе надписи ложатся на лицо.
+     Девушка на фото стоит у левого края кадра, поэтому фото уже и переход короткий */
   @media (min-width: 961px) {
-    .hero-bg img { position: absolute; inset: 0 0 0 auto; width: 62%; object-position: 50% 20%; }
-    .hero-bg::after { background: linear-gradient(90deg, var(--bg) 0%, var(--bg) 42%, rgba(17,17,16,.6) 60%, rgba(17,17,16,0) 82%),
-                                  linear-gradient(180deg, rgba(17,17,16,0) 60%, rgba(17,17,16,.9) 100%); }
+    .hero-bg img { position: absolute; inset: 0 0 0 auto; width: 50%; object-position: 50% 25%; }
+    .hero-bg::after { background: linear-gradient(90deg, var(--bg) 0%, var(--bg) 50%, rgba(17,17,16,.3) 56%, rgba(17,17,16,0) 62%),
+                                  linear-gradient(180deg, rgba(17,17,16,.7) 0%, rgba(17,17,16,0) 40%, rgba(17,17,16,0) 60%, rgba(17,17,16,.9) 100%); }
     /* Арабский читается справа налево: текст справа, значит фото слева */
     [dir="rtl"] .hero-bg img { inset: 0 auto 0 0; }
-    [dir="rtl"] .hero-bg::after { background: linear-gradient(270deg, var(--bg) 0%, var(--bg) 42%, rgba(17,17,16,.6) 60%, rgba(17,17,16,0) 82%),
-                                  linear-gradient(180deg, rgba(17,17,16,0) 60%, rgba(17,17,16,.9) 100%); }
+    [dir="rtl"] .hero-bg::after { background: linear-gradient(270deg, var(--bg) 0%, var(--bg) 50%, rgba(17,17,16,.3) 56%, rgba(17,17,16,0) 62%),
+                                  linear-gradient(180deg, rgba(17,17,16,.7) 0%, rgba(17,17,16,0) 40%, rgba(17,17,16,0) 60%, rgba(17,17,16,.9) 100%); }
+  }
+  /* На телефоне и планшете фото сверху, текст всегда начинается под ним — при любой высоте экрана лицо не закрыто */
+  @media (max-width: 960px) {
+    .hero { min-height: 0; padding-top: 47svh; }
+    .hero-bg img { height: 55svh; object-position: 22% 25%; }
+    .hero-bg::after { background: linear-gradient(180deg, rgba(17,17,16,0) 30svh, rgba(17,17,16,.8) 47svh, var(--bg) 55svh); }
   }
   .hero h1 { font-size: clamp(3rem, 8vw, 6.4rem); max-width: 900px; letter-spacing: -.015em; }
   [lang="ar"] .hero h1 { letter-spacing: 0; }
@@ -182,7 +189,7 @@
   @media (max-width: 560px) {
     .container { padding: 0 16px; }
     section { padding: 72px 0; }
-    .hero { min-height: min(88svh, 720px); padding-bottom: 48px; }
+    .hero { padding-bottom: 48px; }
     .header .btn { display: none; }
     .gallery { column-gap: 8px; }
     .gallery.rows, .gallery-col { gap: 8px; }
@@ -221,7 +228,7 @@
 <main id="top">
   <!-- Первый экран -->
   <section class="hero">
-    <div class="hero-bg"><img src="images/portrait-07.jpg" alt="" width="1200" height="1600"></div>
+    <div class="hero-bg"><img src="images/portrait-08.jpg" alt="" width="1200" height="1600"></div>
     <div class="container">
       <p class="eyebrow" data-i18n="hero.eyebrow">Фотограф в Аммане · personal · love story · pregnancy</p>
       <h1 data-i18n="hero.title">Видеть. Чувствовать. <em>Замечать.</em></h1>
